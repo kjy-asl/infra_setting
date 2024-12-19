@@ -91,6 +91,6 @@ jobs:
         aws deploy create-deployment 
         --application-name infra-setting-codedeploy
         --deployment-group-name infra-setting-codedeploy-group
-        --file-exists-behavior OVERWRITE 
+        --file-exists-behavior OVERWRITE
         --s3-location bucket=infra-setting-cicd-bucket,bundleType=zip,key=infra-setting.zip
         --region ap-northeast-2
