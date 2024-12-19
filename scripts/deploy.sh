@@ -12,11 +12,11 @@ CURRENT_PROFILE=$(curl -s http://localhost/profile)
 echo "> $CURRENT_PROFILE"
 
 # 쉬고 있는 set 찾기: set1이 사용중이면 set2가 쉬고 있고, 반대면 set1이 쉬고 있음
-if [ $CURRENT_PROFILE == set1 ]
+if [ "$CURRENT_PROFILE" = "set1" ]
 then
-  IDLE_PROFILE=set2
+  IDLE_PROFILE="set2"
   IDLE_PORT=8082
-elif [ $CURRENT_PROFILE == set2 ]
+elif [ "$CURRENT_PROFILE" = "set2" ]
 then
   IDLE_PROFILE=set1
   IDLE_PORT=8081
@@ -34,9 +34,9 @@ IDLE_APPLICATION_PATH=$DEPLOY_PATH$IDLE_APPLICATION
 ln -Tfs $DEPLOY_PATH$JAR_NAME $IDLE_APPLICATION_PATH
 
 echo "> $IDLE_PROFILE 에서 구동중인 애플리케이션 pid 확인"
-IDLE_PID=$(pgrep -f $IDLE_APPLICATION)
+IDLE_PID=$(pgrep -f "$IDLE_APPLICATION")
 
-if [ -z $IDLE_PID ]
+if [ -z "$IDLE_PID" ]
 then
   echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
