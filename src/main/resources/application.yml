@@ -1,20 +1,3 @@
 spring:
   profiles:
     active: local
-  h2:
-    console:
-      enabled: false
-      path: /h2-console
-      settings:
-        web-allow-others: true
-
----
-
-spring:
-  profiles:
-    active: mysql
-  datasource:
-    url: jdbc:mysql://localhost:3306/test_batch
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: kjy
-    password: 1234
